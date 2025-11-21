@@ -1,6 +1,6 @@
-# Citation Mind
+# 🐘 Elephant
 
-A command-line tool to track, analyze, and boost your scientific citations across multiple platforms.
+**Never forget your citations.** A command-line tool to track, analyze, and boost your scientific citations across multiple platforms.
 
 ## Features
 
@@ -32,19 +32,19 @@ python setup.py install
 
 ```bash
 # Initialize your profile
-citation-mind init
+elephant init
 
 # Fetch latest metrics
-citation-mind fetch --all
+elephant fetch --all
 
 # View dashboard
-citation-mind dashboard
+elephant dashboard
 
 # Get recommendations
-citation-mind recommend
+elephant recommend
 
 # Track specific paper
-citation-mind track --doi "10.1234/example"
+elephant track --doi "10.1234/example"
 ```
 
 ## Commands

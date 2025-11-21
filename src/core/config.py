@@ -1,4 +1,4 @@
-"""Configuration management for Citation Mind"""
+"""Configuration management for Elephant"""
 
 import yaml
 from pathlib import Path
@@ -92,7 +92,7 @@ class Config(BaseModel):
     @classmethod
     def get_config_dir(cls) -> Path:
         """Get the configuration directory"""
-        config_dir = Path.home() / '.citation-mind'
+        config_dir = Path.home() / '.elephant'
         config_dir.mkdir(exist_ok=True)
         return config_dir
 

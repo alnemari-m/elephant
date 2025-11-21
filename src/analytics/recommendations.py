@@ -167,7 +167,7 @@ class RecommendationEngine:
                 'description': 'Regularly update your profiles and citation data.',
                 'impact': 'Low - Maintenance',
                 'effort': 'Low - Automated with this tool',
-                'action': 'Run "citation-mind fetch --all" weekly. Set up automated alerts.',
+                'action': 'Run "elephant fetch --all" weekly. Set up automated alerts.',
                 'data': {}
             })
 

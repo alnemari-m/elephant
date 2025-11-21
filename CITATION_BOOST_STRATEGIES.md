@@ -336,19 +336,19 @@ Best regards,
 
 ## Tracking Your Progress
 
-Use Citation Mind to monitor:
+Use Elephant to monitor:
 
 ```bash
 # Weekly check
-citation-mind fetch --all
-citation-mind dashboard --detailed
+elephant fetch --all
+elephant dashboard --detailed
 
 # Monthly review
-citation-mind stats
-citation-mind recommend
+elephant stats
+elephant recommend
 
 # Track specific papers you're promoting
-citation-mind track --doi "10.xxxx/xxxxx"
+elephant track --doi "10.xxxx/xxxxx"
 ```
 
 **Set goals:**
@@ -396,7 +396,7 @@ citation-mind track --doi "10.xxxx/xxxxx"
 ## Resources
 
 ### Tools
-- Citation Mind (this tool!)
+- Elephant (this tool!)
 - Google Scholar Alerts
 - Altmetric
 - Plum Analytics

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Citation Mind CLI
+Elephant CLI
 Main entry point for the command-line interface
 """
 
@@ -27,11 +27,11 @@ console = Console()
 @click.version_option(version='0.1.0')
 @click.pass_context
 def main(ctx):
-    """Citation Mind - Boost your scientific citations"""
+    """Elephant - Boost your scientific citations"""
     ctx.ensure_object(dict)
 
     # Load configuration
-    config_path = Path.home() / '.citation-mind' / 'config.yaml'
+    config_path = Path.home() / '.elephant' / 'config.yaml'
     if config_path.exists():
         ctx.obj['config'] = Config.load(config_path)
     else:
@@ -44,7 +44,7 @@ def main(ctx):
 @click.option('--name', prompt='Your name', help='Your full name')
 @click.pass_context
 def init(ctx, orcid, email, name):
-    """Initialize Citation Mind with your credentials"""
+    """Initialize Elephant with your credentials"""
     init_command(orcid, email, name)
 
 

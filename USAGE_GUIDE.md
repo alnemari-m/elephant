@@ -1,11 +1,11 @@
-# Citation Mind - Usage Guide
+# Elephant - Usage Guide
 
 ## Quick Start Guide
 
 ### 1. Installation
 
 ```bash
-cd citation-mind
+cd elephant
 pip install -r requirements.txt
 pip install -e .
 ```
@@ -13,7 +13,7 @@ pip install -e .
 ### 2. Initialize Your Profile
 
 ```bash
-citation-mind init
+elephant init
 ```
 
 You'll be prompted for:
@@ -23,7 +23,7 @@ You'll be prompted for:
 
 ### 3. Configure API Keys (Optional but Recommended)
 
-Create a `.env` file in `~/.citation-mind/`:
+Create a `.env` file in `~/.elephant/`:
 
 ```bash
 # Semantic Scholar (recommended - free)
@@ -50,24 +50,24 @@ SCOPUS_API_KEY=your_scopus_key
 
 ```bash
 # Fetch from all enabled platforms
-citation-mind fetch --all
+elephant fetch --all
 
 # Or fetch from specific platforms
-citation-mind fetch --platform semantic_scholar
-citation-mind fetch --platform orcid --platform arxiv
+elephant fetch --platform semantic_scholar
+elephant fetch --platform orcid --platform arxiv
 ```
 
 ### 5. View Your Dashboard
 
 ```bash
 # Quick overview
-citation-mind dashboard
+elephant dashboard
 
 # Detailed view with top papers
-citation-mind dashboard --detailed
+elephant dashboard --detailed
 
 # Specific time period
-citation-mind dashboard --period month
+elephant dashboard --period month
 ```
 
 ## Core Features
@@ -78,14 +78,14 @@ Track your citations across multiple platforms:
 
 ```bash
 # Track all papers
-citation-mind fetch --all
+elephant fetch --all
 
 # Track specific paper
-citation-mind track --doi "10.1234/example"
-citation-mind track --arxiv "2301.12345"
+elephant track --doi "10.1234/example"
+elephant track --arxiv "2301.12345"
 
 # List tracked papers
-citation-mind track --list
+elephant track --list
 ```
 
 ### Get Recommendations
@@ -94,15 +94,15 @@ The tool analyzes your citation profile and provides actionable recommendations:
 
 ```bash
 # Get top 5 recommendations
-citation-mind recommend
+elephant recommend
 
 # Get more recommendations
-citation-mind recommend --top 10
+elephant recommend --top 10
 
 # Filter by category
-citation-mind recommend --category visibility
-citation-mind recommend --category collaboration
-citation-mind recommend --category trending
+elephant recommend --category visibility
+elephant recommend --category collaboration
+elephant recommend --category trending
 ```
 
 **Recommendation Categories:**
@@ -116,36 +116,36 @@ citation-mind recommend --category trending
 
 ```bash
 # Overall statistics
-citation-mind stats
+elephant stats
 
 # Specific paper statistics
-citation-mind stats --paper "10.1234/example"
+elephant stats --paper "10.1234/example"
 ```
 
 ### Export Data
 
 ```bash
 # Export to CSV (default)
-citation-mind export
+elephant export
 
 # Export to JSON
-citation-mind export --format json --output my_citations.json
+elephant export --format json --output my_citations.json
 
 # Export to Excel
-citation-mind export --format xlsx --output citations.xlsx
+elephant export --format xlsx --output citations.xlsx
 ```
 
 ### Set Up Alerts
 
 ```bash
 # Enable citation alerts
-citation-mind alert --enable
+elephant alert --enable
 
 # Set threshold (alert when paper gets N+ citations)
-citation-mind alert --threshold 5
+elephant alert --threshold 5
 
 # Disable alerts
-citation-mind alert --disable
+elephant alert --disable
 ```
 
 ## Platform-Specific Notes
@@ -236,12 +236,12 @@ Set up a cron job to fetch data weekly:
 crontab -e
 
 # Add this line (runs every Sunday at 2 AM)
-0 2 * * 0 /usr/bin/citation-mind fetch --all
+0 2 * * 0 /usr/bin/elephant fetch --all
 ```
 
 ### Email Alerts (Future Feature)
 
-Configure email notifications in `~/.citation-mind/config.yaml`:
+Configure email notifications in `~/.elephant/config.yaml`:
 
 ```yaml
 alerts:
@@ -253,7 +253,7 @@ alerts:
 ## Troubleshooting
 
 ### "Not initialized" Error
-Run `citation-mind init` first.
+Run `elephant init` first.
 
 ### No Data Fetched
 - Check your internet connection
@@ -277,7 +277,7 @@ Google Scholar often blocks automated requests. Solutions:
 
 ### Custom Database Location
 
-Edit `~/.citation-mind/config.yaml`:
+Edit `~/.elephant/config.yaml`:
 
 ```yaml
 database:
@@ -305,7 +305,7 @@ tracking:
 Found a bug or want to add a feature? The project structure is:
 
 ```
-citation-mind/
+elephant/
 ├── src/
 │   ├── api/           # Platform integrations
 │   ├── core/          # CLI and configuration

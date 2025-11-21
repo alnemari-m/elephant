@@ -1,1 +1,1 @@
-"""Core modules for Citation Mind"""
+"""Core modules for Elephant"""

@@ -1,4 +1,4 @@
-"""Command implementations for Citation Mind CLI"""
+"""Command implementations for Elephant CLI"""
 
 from rich.console import Console
 from rich.table import Table
@@ -19,8 +19,8 @@ console = Console()
 
 
 def init_command(orcid: str, email: str, name: str):
-    """Initialize Citation Mind configuration"""
-    console.print("[bold blue]Initializing Citation Mind...[/bold blue]")
+    """Initialize Elephant configuration"""
+    console.print("[bold blue]Initializing Elephant...[/bold blue]")
 
     config_dir = Config.get_config_dir()
     config_path = config_dir / 'config.yaml'
@@ -70,15 +70,15 @@ def init_command(orcid: str, email: str, name: str):
     console.print(f"[green]✓[/green] Configuration saved to {config_path}")
     console.print(f"[green]✓[/green] Database initialized")
     console.print("\n[yellow]Next steps:[/yellow]")
-    console.print("1. Add API keys to ~/.citation-mind/.env (see .env.example)")
-    console.print("2. Run 'citation-mind fetch --all' to fetch your data")
-    console.print("3. Run 'citation-mind dashboard' to view your metrics")
+    console.print("1. Add API keys to ~/.elephant/.env (see .env.example)")
+    console.print("2. Run 'elephant fetch --all' to fetch your data")
+    console.print("3. Run 'elephant dashboard' to view your metrics")
 
 
 def fetch_command(config: Optional[Config], fetch_all: bool, platforms: tuple, force: bool):
     """Fetch citation data from platforms"""
     if not config:
-        console.print("[red]Error:[/red] Not initialized. Run 'citation-mind init' first.")
+        console.print("[red]Error:[/red] Not initialized. Run 'elephant init' first.")
         return
 
     console.print("[bold blue]Fetching citation data...[/bold blue]\n")
@@ -112,7 +112,7 @@ def fetch_command(config: Optional[Config], fetch_all: bool, platforms: tuple, f
 def dashboard_command(config: Optional[Config], detailed: bool, period: str):
     """Display citation dashboard"""
     if not config:
-        console.print("[red]Error:[/red] Not initialized. Run 'citation-mind init' first.")
+        console.print("[red]Error:[/red] Not initialized. Run 'elephant init' first.")
         return
 
     db = Database(config.database.path)
@@ -165,7 +165,7 @@ def dashboard_command(config: Optional[Config], detailed: bool, period: str):
 def recommend_command(config: Optional[Config], top: int, category: Optional[str]):
     """Get recommendations to boost citations"""
     if not config:
-        console.print("[red]Error:[/red] Not initialized. Run 'citation-mind init' first.")
+        console.print("[red]Error:[/red] Not initialized. Run 'elephant init' first.")
         return
 
     db = Database(config.database.path)
@@ -191,7 +191,7 @@ def track_command(config: Optional[Config], doi: Optional[str], arxiv: Optional[
                   title: Optional[str], list_tracked: bool):
     """Track specific papers"""
     if not config:
-        console.print("[red]Error:[/red] Not initialized. Run 'citation-mind init' first.")
+        console.print("[red]Error:[/red] Not initialized. Run 'elephant init' first.")
         return
 
     db = Database(config.database.path)
@@ -225,7 +225,7 @@ def track_command(config: Optional[Config], doi: Optional[str], arxiv: Optional[
 def export_command(config: Optional[Config], output_format: str, output: Optional[str]):
     """Export citation data"""
     if not config:
-        console.print("[red]Error:[/red] Not initialized. Run 'citation-mind init' first.")
+        console.print("[red]Error:[/red] Not initialized. Run 'elephant init' first.")
         return
 
     import pandas as pd
@@ -251,7 +251,7 @@ def export_command(config: Optional[Config], output_format: str, output: Optiona
 def alert_command(config: Optional[Config], enable: bool, threshold: Optional[int]):
     """Configure citation alerts"""
     if not config:
-        console.print("[red]Error:[/red] Not initialized. Run 'citation-mind init' first.")
+        console.print("[red]Error:[/red] Not initialized. Run 'elephant init' first.")
         return
 
     config.alerts.enabled = enable
@@ -270,7 +270,7 @@ def alert_command(config: Optional[Config], enable: bool, threshold: Optional[in
 def stats_command(config: Optional[Config], paper: Optional[str]):
     """Show detailed statistics"""
     if not config:
-        console.print("[red]Error:[/red] Not initialized. Run 'citation-mind init' first.")
+        console.print("[red]Error:[/red] Not initialized. Run 'elephant init' first.")
         return
 
     db = Database(config.database.path)
